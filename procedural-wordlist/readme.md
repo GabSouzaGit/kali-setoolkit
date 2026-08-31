@@ -1,1 +1,0 @@
-Faça ``pip install torch transformers accelerate``
