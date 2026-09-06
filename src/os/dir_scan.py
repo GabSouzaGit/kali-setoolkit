@@ -1,18 +1,12 @@
 from pathlib import Path
 import sys
 import re
+from colors import RED, DEFAULT, PURPLE, GREEN, YELLOW
 
 if sys.platform == "win32":
     import ctypes
     kernel32 = ctypes.windll.kernel32
     kernel32.SetConsoleMode(kernel32.GetStdHandle(-11), 7)
-
-RED = "\033[91m"
-GREEN = "\033[32m"
-YELLOW = "\033[33m"
-BLUE = "\033[34m"
-PURPLE = "\033[95m"
-DEFAULT = "\033[0m"
 
 counter = 0
 rawpath = ""

@@ -1,0 +1,7 @@
+Metadata-Version: 2.4
+Name: kali_setoolkit
+Version: 0.1.0
+Summary: Ferramentas e scripts de crack e hack
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: requests

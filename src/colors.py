@@ -1,0 +1,6 @@
+RED = "\033[91m"
+GREEN = "\033[32m"
+YELLOW = "\033[33m"
+BLUE = "\033[34m"
+PURPLE = "\033[95m"
+DEFAULT = "\033[0m"
