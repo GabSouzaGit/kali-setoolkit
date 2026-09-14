@@ -5,9 +5,9 @@ Ferramentas de varredura, exploiting e cracking para uso em sistemas e web.
 
 
 
-## Instalação
+## 📦 Instalação
 
-### Clonando o projeto
+### 🧬 Clonando o projeto
 Inicie clonando esse projeto em sua máquina:
 
 ```bash
@@ -15,7 +15,7 @@ Inicie clonando esse projeto em sua máquina:
   cd kali-setoolkit
 ```
 
-### Ativando o ambiente virtual
+### 🏠 Ativando o ambiente virtual
 Antes de tudo, insira:
 ```bash
   python3 -m venv .venv
@@ -33,13 +33,13 @@ E então, execute o arquivo de ativação da pasta .venv
   source .venv\bin\activate
 ```
 
-### Atualizando pip
+### 🚀 Atualizando pip
 Em seguida, atualize o pip (se necessário):
 ```bash
     python -m pip install --upgrade pip
 ```
 
-### Baixando dependencias do .toml
+### 📃 Baixando dependencias do .toml
 E por fim, baixe as dependências:
 ```bash
     pip install -e .
