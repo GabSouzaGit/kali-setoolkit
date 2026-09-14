@@ -27,6 +27,7 @@ E então, execute o arquivo de ativação da pasta .venv
 ```bash
   .venv\Scripts\Activate.ps1
 ```
+Ou apenas clique em "activate-venv.bat".
 
 - Para usuários Linux/Mac/Kali:
 ```bash
