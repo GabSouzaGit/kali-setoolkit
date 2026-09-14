@@ -1,12 +1,9 @@
+# SOLVE "COLORS" :(
+
 from pathlib import Path
 import sys
 import re
-from colors import RED, DEFAULT, PURPLE, GREEN, YELLOW
-
-if sys.platform == "win32":
-    import ctypes
-    kernel32 = ctypes.windll.kernel32
-    kernel32.SetConsoleMode(kernel32.GetStdHandle(-11), 7)
+from utils.colors import RED, DEFAULT, PURPLE, GREEN, YELLOW
 
 counter = 0
 rawpath = ""
@@ -15,10 +12,6 @@ scanmode = 0
 path = ""
 
 def recv_data(): 
-    """
-        Recebe os dados de entrada (caminho, modo de varredura e termos)
-    """
-
     global rawpath
     global params
     global scanmode
@@ -47,36 +40,13 @@ def recv_data():
     path = Path(rawpath.strip())
 
 def term_in_name(term, name):
-    """
-        Verifica se o termo existe no nome do arquivo via regex.
-
-        Args:   
-            term (string): termo que será buscado
-            name (string): nome do arquivo
-    """
-
     secure_term = re.escape(term)
     return re.search(secure_term, name, re.IGNORECASE)
 
 def print_finded(filename, path):
-    """
-        Printa o arquivo encontrado com o caminho.
-
-        Args:   
-            filename (string): nome do arquivo
-            path (Path): caminho do arquivo
-    """
-    
     print(f'{GREEN}[{filename}]{DEFAULT} encontrado em {PURPLE}{path}{DEFAULT}')
 
 def r_search_gen(path : Path):
-    """
-        Realiza uma busca recursiva para encontrar todos os arquivos com os nomes OU as extensões indicadas.
-
-        Args:   
-            path (Path): caminho do sub-diretório
-    """
-    
     global counter
 
     for entity in path.iterdir():
@@ -101,13 +71,6 @@ def r_search_gen(path : Path):
                     print_finded(entity.name, path / entity.name)
 
 def r_search_especific(path : Path):
-    """
-        Realiza uma busca recursiva para encontrar todos os arquivos com os nomes E as extensões indicadas.
-
-        Args:   
-            path (Path): caminho do sub-diretório
-    """
-    
     global counter
 
     for entity in path.iterdir():
@@ -130,13 +93,6 @@ def r_search_especific(path : Path):
                     print_finded(entity.name, path / entity.name)
 
 def r_search_all(path : Path):
-    """
-        Realiza uma busca recursiva para encontrar todos os arquivos.
-
-        Args:   
-            path (Path): caminho do sub-diretório
-    """
-
     global counter
 
     for entity in path.iterdir():
