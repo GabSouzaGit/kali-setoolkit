@@ -50,16 +50,16 @@ def request(page):
             allow_redirects=False
         )
     except requests.exceptions.SSLError:
-        printcl("RED", "~ Falha na obtenção de robots.txt: falha na verificação de certificado.\n")
+        printcl("RED", "    ~ Falha na obtenção de robots.txt: falha na verificação de certificado.\n")
 
     except requests.exceptions.ConnectionError:
-        printcl("RED", "~ Falha na obtenção de robots.txt: falha na conexão.\n")
+        printcl("RED", "    ~ Falha na obtenção de robots.txt: falha na conexão.\n")
 
     except requests.exceptions.Timeout:
-        printcl("RED", "~ Falha na obtenção de robots.txt: endpoint demorou muito para responder.\n")
+        printcl("RED", "    ~ Falha na obtenção de robots.txt: endpoint demorou muito para responder.\n")
 
     except requests.exceptions.RequestException:
-        printcl("RED", "~ Falha na obtenção de robots.txt: falha ao obter documento.\n")
+        printcl("RED", "    ~ Falha na obtenção de robots.txt: falha ao obter documento.\n")
 
     if type(response) != Response:
         return {
@@ -78,12 +78,12 @@ def request(page):
 
 def report(report_dict):
     if(report_dict == None):
-        printcl('YELLOW', '! - Correspondência vazia ou incompleta.')
+        printcl('YELLOW', '    ! - Correspondência vazia ou incompleta.\n')
         return
 
-    print(f'URL: {report_dict["url"]}')
+    print(f'    URL: {report_dict["url"]}')
     printcl_concat(
-        ('DEFAULT', 'Robots.txt: '),
+        ('DEFAULT', '    Robots.txt: '),
         ('GREEN', '200 OK\n') if report_dict["robots.txt"] != None else ('RED', 'None\n'),
     )
     
@@ -97,7 +97,7 @@ print("Buscando na rede...\n")
 for search_engine in backends:
     printcl_concat(
         ('DEFAULT', '-- Mecanismo de busca: '),
-        ('GREEN', search_engine)
+        ('GREEN', search_engine + "\n")
     )
 
     try:
@@ -108,7 +108,7 @@ for search_engine in backends:
             regions=wrld_regions
         )
     except ddgs.exceptions.DDGSException:
-        printcl('YELLOW', '! - Este mecanismo não encontrou correspondências.')
+        printcl('YELLOW', '    ! - Este mecanismo não encontrou correspondências.\n')
         print(50 * "-")
         print("\n")
         continue
@@ -118,7 +118,6 @@ for search_engine in backends:
         report(response)
 
     print(50 * "-")
-    print("\n")
 
 input("\nBusca finalizada!\nPressione ENTER para sair.")
 cs_clear()
