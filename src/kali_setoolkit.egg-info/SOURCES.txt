@@ -1,0 +1,15 @@
+README.md
+pyproject.toml
+src/cracking/hash-colision.py
+src/kali_setoolkit.egg-info/PKG-INFO
+src/kali_setoolkit.egg-info/SOURCES.txt
+src/kali_setoolkit.egg-info/dependency_links.txt
+src/kali_setoolkit.egg-info/requires.txt
+src/kali_setoolkit.egg-info/top_level.txt
+src/osint/page-finder.py
+src/scan/dir_scan.py
+src/utils/benchmark.py
+src/utils/clear.py
+src/utils/colors.py
+src/utils/printcl.py
+src/web-exploits/2fabypass-lab.py

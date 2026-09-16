@@ -3,7 +3,10 @@
 from pathlib import Path
 import sys
 import re
-from utils.colors import RED, DEFAULT, PURPLE, GREEN, YELLOW
+
+from utils.colors import ansicolors
+
+colors = ansicolors()
 
 counter = 0
 rawpath = ""
@@ -25,11 +28,11 @@ def recv_data():
         scanmode = int(input('Modo de varredura:\n\n0 - Qualquer arquivo com o nome ou a extensão\n1 - Arquivo com o nome e a extensão juntos\n2 - Todos os arquivos\n'))
 
         if scanmode == 0:
-            params = input(f'Insira os termos e as extensões\n\nExemplo: termo1, termo2:.csv, .txt\n\n{RED}Use "*" quando o nome ou a extensão não importarem: {DEFAULT}').split(":")
+            params = input(f'Insira os termos e as extensões\n\nExemplo: termo1, termo2:.csv, .txt\n\n{colors['RED']}Use "*" quando o nome ou a extensão não importarem: {colors['DEFAULT']}').split(":")
             scanmode_nready = False
             params = [ params[0].split(","), params[1].split(",") ]
         elif scanmode == 1:
-            params = input(f'Insira {RED}obrigatóriamente{DEFAULT} os termos e as extensões\n\nExemplo: termo1, termo2:.csv, .txt\n\n').split(":")
+            params = input(f'Insira {colors['RED']}obrigatóriamente{colors['DEFAULT']} os termos e as extensões\n\nExemplo: termo1, termo2:.csv, .txt\n\n').split(":")
             scanmode_nready = False
             params = [ params[0].split(","), params[1].split(",") ]
         elif scanmode == 2:
@@ -44,7 +47,7 @@ def term_in_name(term, name):
     return re.search(secure_term, name, re.IGNORECASE)
 
 def print_finded(filename, path):
-    print(f'{GREEN}[{filename}]{DEFAULT} encontrado em {PURPLE}{path}{DEFAULT}')
+    print(f'{colors['GREEN']}[{filename}]{colors['DEFAULT']} encontrado em {colors['PURPLE']}{path}{colors['DEFAULT']}')
 
 def r_search_gen(path : Path):
     global counter
@@ -117,7 +120,7 @@ while(running):
         mode = modes[scanmode]
         mode(path)
 
-        print(f'\n{YELLOW}{counter} arquivos encontrados.{DEFAULT}')
+        print(f'\n{colors['YELLOW']}{counter} arquivos encontrados.{colors['DEFAULT']}')
     else:
         print("\nO caminho informado não existe ou esta escrito incorretamente.")
 

@@ -1,0 +1,5 @@
+cracking
+osint
+scan
+utils
+web-exploits
