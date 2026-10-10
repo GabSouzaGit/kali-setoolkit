@@ -1,4 +1,5 @@
 cracking
+malwares
 osint
 scan
 utils

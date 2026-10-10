@@ -6,6 +6,7 @@ src/kali_setoolkit.egg-info/SOURCES.txt
 src/kali_setoolkit.egg-info/dependency_links.txt
 src/kali_setoolkit.egg-info/requires.txt
 src/kali_setoolkit.egg-info/top_level.txt
+src/malwares/ransomware.py
 src/osint/page-finder.py
 src/scan/dir_scan.py
 src/utils/benchmark.py
